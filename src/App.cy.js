@@ -6,4 +6,10 @@ describe('<App />', () => {
     // see: https://on.cypress.io/mounting-react
     cy.mount(<App />)
   })
+
+  it('has the correct title', () => {
+    cy.mount(<App />)
+
+    cy.get('.Header-text').should('contain.text','F1 Schedule')
+  })
 })
