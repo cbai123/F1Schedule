@@ -18,18 +18,18 @@ function RaceInfoBox({raceInfo}) {
 
   return(
     <div className='race-info-box' onClick={handleClick}>
-      <h3 data-cy="race-title">{raceInfo.raceName}</h3>
+      <h3 className="race-title">{raceInfo.raceName}</h3>
       {showInfo && <div className='race-info'>
-        <h4>Qualifying</h4>
-        <p data-cy="quali-time">Start Time: {timeFormat(raceInfo.Qualifying.date, raceInfo.Qualifying.time)}</p>
+        <h4 className="info-box-quali">Qualifying</h4>
+        <p className="info-box-time">Start Time: {timeFormat(raceInfo.Qualifying.date, raceInfo.Qualifying.time)}</p>
         {raceInfo.Sprint && 
         <>
-          <h4>Sprint</h4>
-          <p data-cy="sprint-time">Start Time: {timeFormat(raceInfo.Sprint.date, raceInfo.Sprint.time)}</p>
+          <h4 className="info-box-sprint">Sprint</h4>
+          <p className="info-box-time">Start Time: {timeFormat(raceInfo.Sprint.date, raceInfo.Sprint.time)}</p>
         </>
         }
-        <h4>Race</h4>
-        <p data-cy="race-time">Start Time: {timeFormat(raceInfo.date, raceInfo.time)}</p>
+        <h4 className="info-box-race">Race</h4>
+        <p className="info-box-time">Start Time: {timeFormat(raceInfo.date, raceInfo.time)}</p>
       </div>}
     </div>
   )
