@@ -4,46 +4,27 @@ import RaceInfoBox from "./raceInfoBox";
 describe('<RaceInfoBox />', () => {
 
   const raceInfo = {
-    'description': 'Bahrain Grand Prix 2023',
-    'stages': [{
-      'description':'Practice 1'
-    },
-    {
-      'description': 'Practice 2'
-    },
-    {
-      'description': 'Practice 3'
-    },
-    {
-      'description': 'Qualification',
-      'scheduled': '2023-03-04T14:00:00+00:00'
-    },
-    {
-      'description': 'Race',
-      'scheduled': '2023-03-05T15:00:00+00:00'
-    }]
+    'raceName': 'Bahrain Grand Prix 2023',
+    'date': '2023-03-05',
+    'time': '15:00:00Z',
+    'Qualifying': {
+      'date': '2023-03-04',
+      'time': '14:00:00Z'
+    }
   }
 
   const sprintRaceInfo = {
-    'description': 'Bahrain Grand Prix 2023',
-    'stages': [{
-      'description':'Practice 1'
+    'raceName': 'Bahrain Grand Prix 2023',
+    'date': '2023-03-05',
+    'time': '15:00:00Z',
+    'Qualifying': {
+      'date': '2023-03-03',
+      'time': '13:00:00Z'
     },
-    {
-      'description': 'Qualification',
-      'scheduled': '2023-03-03T13:00:00+00:00'
-    },
-    {
-      'description': 'Practice 2'
-    },
-    {
-      'description': 'Sprint',
-      'scheduled': '2023-03-04T14:00:00+00:00'
-    },
-    {
-      'description': 'Race',
-      'scheduled': '2023-03-05T15:00:00+00:00'
-    }]
+    'Sprint': {
+      'date': '2023-03-04',
+      'time': '14:00:00Z'
+    }
   }
 
   beforeEach(() => {

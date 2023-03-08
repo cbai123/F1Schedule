@@ -7,6 +7,6 @@ describe('<Home />', () => {
   })
 
   it('renders the correct number of raceInfo boxes', () => {
-    cy.get('.race-info-box').should('have.length', 24)
+    cy.get('.race-info-box').should('have.length', 23)
   })
 })
