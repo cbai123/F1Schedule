@@ -24,20 +24,30 @@ describe('<RaceInfoBox />', () => {
     }]
   }
 
-  it('should render the name of the Grand Prix', () => {
-    cy.mount(<RaceInfoBox raceInfo={raceInfo}/>)
+  beforeEach(() => {
+    cy.mount(<RaceInfoBox raceInfo={raceInfo} />)
+  })
 
+  it('should render the name of the Grand Prix', () => {
     cy.get('[data-cy="race-title"]').should('contain.text', 'Bahrain Grand Prix 2023')
   })
 
-  it('should render the time of qualifying', () => {
-    cy.mount(<RaceInfoBox raceInfo={raceInfo} />)
+  it('should not initially render the time of qualifying', () => {
+    cy.get('[data-cy="quali-time"]').should('not.exist')
+  })
+
+  it('should not initially render the time of the race', () => {
+    cy.get('[data-cy="race-time"]').should('not.exist')
+  })
+
+  it('should show quali time after clicking the info box', () => {
+    cy.get('[data-cy="race-title"]').click()
 
     cy.get('[data-cy="quali-time"]').should('contain.text', 'Start Time: 15:00')
   })
 
-  it('should render the time of the race', () => {
-    cy.mount(<RaceInfoBox raceInfo={raceInfo} />)
+  it('should show race time after clicking the info box', () => {
+    cy.get('[data-cy="race-title"]').click()
 
     cy.get('[data-cy="race-time"]').should('contain.text', 'Start Time: 15:00')
   })
