@@ -24,7 +24,9 @@ function Home() {
     }]
 	}
 	return(
+		<div className="race-info-box-container">
 			<RaceInfoBox raceInfo={raceInfo} />
+		</div>
 	)
 }
 
