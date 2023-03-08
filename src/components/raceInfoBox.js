@@ -21,15 +21,15 @@ function RaceInfoBox({raceInfo}) {
       <h3 className="race-title">{raceInfo.raceName}</h3>
       {showInfo && <div className='race-info'>
         <h4 className="info-box-quali">Qualifying</h4>
-        <p className="info-box-time">Start Time: {timeFormat(raceInfo.Qualifying.date, raceInfo.Qualifying.time)}</p>
+        <p className="info-box-time" data-cy="quali-time">Start Time: {timeFormat(raceInfo.Qualifying.date, raceInfo.Qualifying.time)}</p>
         {raceInfo.Sprint && 
         <>
           <h4 className="info-box-sprint">Sprint</h4>
-          <p className="info-box-time">Start Time: {timeFormat(raceInfo.Sprint.date, raceInfo.Sprint.time)}</p>
+          <p className="info-box-time" data-cy="sprint-time">Start Time: {timeFormat(raceInfo.Sprint.date, raceInfo.Sprint.time)}</p>
         </>
         }
         <h4 className="info-box-race">Race</h4>
-        <p className="info-box-time">Start Time: {timeFormat(raceInfo.date, raceInfo.time)}</p>
+        <p className="info-box-time" data-cy="race-time">Start Time: {timeFormat(raceInfo.date, raceInfo.time)}</p>
       </div>}
     </div>
   )
