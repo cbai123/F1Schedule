@@ -17,7 +17,11 @@ function Home() {
 		{
 			'description': 'Qualification',
 			'scheduled': '2023-03-04T15:00:00+00:00'
-		}]
+		},
+		{
+      'description': 'Race',
+      'scheduled': '2023-03-05T15:00:00+00:00'
+    }]
 	}
 	return(
 			<RaceInfoBox raceInfo={raceInfo} />

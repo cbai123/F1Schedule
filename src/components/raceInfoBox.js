@@ -14,8 +14,10 @@ function RaceInfoBox( {raceInfo}) {
     <div>
       <h3 className="race-title">{raceInfo.description}</h3>
       <div>
-        <h5>{raceInfo.stages[3].description}</h5>
+        <h4>{raceInfo.stages[3].description}</h4>
         <p className="quali-time">Start Time: {timeFormat(raceInfo.stages[3].scheduled)}</p>
+        <h4>{raceInfo.stages[4].description}</h4>
+        <p className="race-time">Start Time: {timeFormat(raceInfo.stages[4].scheduled)}</p>
       </div>
     </div>
   )

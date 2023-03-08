@@ -17,6 +17,10 @@ describe('<RaceInfoBox />', () => {
     {
       'description': 'Qualification',
       'scheduled': '2023-03-04T15:00:00+00:00'
+    },
+    {
+      'description': 'Race',
+      'scheduled': '2023-03-05T15:00:00+00:00'
     }]
   }
 
@@ -30,5 +34,11 @@ describe('<RaceInfoBox />', () => {
     cy.mount(<RaceInfoBox raceInfo={raceInfo} />)
 
     cy.get('.quali-time').should('contain.text', 'Start Time: 15:00')
+  })
+
+  it('should render the time of the race', () => {
+    cy.mount(<RaceInfoBox raceInfo={raceInfo} />)
+
+    cy.get('.race-time').should('contain.text', 'Start Time: 15:00')
   })
 })
