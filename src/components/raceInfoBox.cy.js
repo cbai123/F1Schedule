@@ -27,18 +27,18 @@ describe('<RaceInfoBox />', () => {
   it('should render the name of the Grand Prix', () => {
     cy.mount(<RaceInfoBox raceInfo={raceInfo}/>)
 
-    cy.get('.race-title').should('contain.text', 'Bahrain Grand Prix 2023')
+    cy.get('[data-cy="race-title"]').should('contain.text', 'Bahrain Grand Prix 2023')
   })
 
   it('should render the time of qualifying', () => {
     cy.mount(<RaceInfoBox raceInfo={raceInfo} />)
 
-    cy.get('.quali-time').should('contain.text', 'Start Time: 15:00')
+    cy.get('[data-cy="quali-time"]').should('contain.text', 'Start Time: 15:00')
   })
 
   it('should render the time of the race', () => {
     cy.mount(<RaceInfoBox raceInfo={raceInfo} />)
 
-    cy.get('.race-time').should('contain.text', 'Start Time: 15:00')
+    cy.get('[data-cy="race-time"]').should('contain.text', 'Start Time: 15:00')
   })
 })
