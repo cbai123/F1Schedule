@@ -2,6 +2,7 @@
   text-align: center;
   background-color: #1c1b1b;
   min-height: 100vh;
+  min-width: 100vw;
 }
 
 .App-header {
