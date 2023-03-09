@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import RaceInfoBox from "../components/raceInfoBox"
 
-function Home() {
+function Home({navigate}) {
 	const [raceArr, setRaceArr] = useState([])
 	const dateArr = []
 	useEffect(() => {
@@ -24,12 +24,20 @@ function Home() {
 
 
 	return(
-		<div className="race-info-box-container">
-			{ raceArr.map((raceInfo, index) => {
-					const nextRace = index === nextRaceIndex
-					return <RaceInfoBox key={index} raceInfo={raceInfo} nextRace={nextRace}/>
-				})}
-		</div>
+		<>
+			<header className="App-header">
+				<h2>F1 Schedule</h2>
+			</header>
+
+			<body className='App'>
+				<div className="race-info-box-container">
+					{ raceArr.map((raceInfo, index) => {
+							const nextRace = index === nextRaceIndex
+							return <RaceInfoBox key={index} raceInfo={raceInfo} nextRace={nextRace} navigate={navigate}/>
+						})}
+				</div>
+			</body>
+		</>
 	)
 }
 

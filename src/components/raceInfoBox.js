@@ -1,7 +1,6 @@
 import { useState } from "react"
 
-function RaceInfoBox({raceInfo, nextRace}) {
-
+function RaceInfoBox({raceInfo, nextRace, navigate}) {
   const [showInfo, setShowInfo] = useState(false)
 
   function timeFormat(date, time) {
@@ -13,7 +12,7 @@ function RaceInfoBox({raceInfo, nextRace}) {
   }
 
   function dateFormat(date) {
-    const raceDate = new Date(date)
+    const raceDate = new Date(raceInfo.date)
     const day = '0' + raceDate.getDate()
     const month = '0' + (raceDate.getMonth() + 1)
     const year = raceDate.getFullYear().toString().slice(2,4)
@@ -25,16 +24,20 @@ function RaceInfoBox({raceInfo, nextRace}) {
     setShowInfo(!showInfo)
   }
 
+  function changePage() {
+    navigate(`/${raceInfo.round}`)
+  }
+
   function nextRaceCheck() {
     if (nextRace) {
       return 'next-race-info-box'
-    } else {
+    } else { 
       return 'race-info-box'
     }
   }
 
   return(
-    <div className={nextRaceCheck()} onClick={handleClick}>
+    <div className={nextRaceCheck('box')} onClick={handleClick}>
       <h3 className="race-title">{dateFormat(raceInfo.date)}&emsp;{raceInfo.raceName}</h3>
       {showInfo && <div className='race-info'>
         <h4 className="info-box-quali">Qualifying</h4>
@@ -47,6 +50,7 @@ function RaceInfoBox({raceInfo, nextRace}) {
         }
         <h4 className="info-box-race">Race</h4>
         <p className="info-box-time" data-cy="race-time">Start Time: {timeFormat(raceInfo.date, raceInfo.time)}</p>
+          <button className='more-info-btn' onClick={changePage}>More Info</button>
       </div>}
     </div>
   )

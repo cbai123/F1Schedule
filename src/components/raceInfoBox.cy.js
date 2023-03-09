@@ -5,6 +5,7 @@ import '../App.css'
 describe('<RaceInfoBox />', () => {
 
   const raceInfo = {
+    'round': 1,
     'raceName': 'Bahrain Grand Prix 2023',
     'date': '2023-03-05',
     'time': '15:00:00Z',
@@ -47,26 +48,26 @@ describe('<RaceInfoBox />', () => {
   })
 
   it('should show quali time after clicking the info box', () => {
-    cy.get('.race-title').click()
+    cy.get('.race-info-box').click()
 
     cy.get('[data-cy="quali-time"]').should('contain.text', 'Start Time: 14:00')
   })
 
   it('should show race time after clicking the info box', () => {
-    cy.get('.race-title').click()
+    cy.get('.race-info-box').click()
 
     cy.get('[data-cy="race-time"]').should('contain.text', 'Start Time: 15:00')
   })
 
   it('should not show sprint info if week is not a sprint week', () => {
-    cy.get('.race-title').click()
+    cy.get('.race-info-box').click()
 
     cy.get('[data-cy="sprint-time"]').should('not.exist')
   })
 
   it('should show all correct info in a sprint week', () => {
     cy.mount(<RaceInfoBox raceInfo={sprintRaceInfo} />)
-    cy.get('.race-title').click()
+    cy.get('.race-info-box').click()
 
     cy.get('[data-cy="quali-time"]').should('contain.text', 'Start Time: 13:00')
     cy.get('[data-cy="sprint-time"]').should('contain.text', 'Start Time: 14:00')
