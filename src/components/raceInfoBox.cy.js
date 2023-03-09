@@ -1,5 +1,6 @@
 import React from "react";
 import RaceInfoBox from "./raceInfoBox";
+import '../App.css'
 
 describe('<RaceInfoBox />', () => {
 
@@ -70,5 +71,16 @@ describe('<RaceInfoBox />', () => {
     cy.get('[data-cy="quali-time"]').should('contain.text', 'Start Time: 13:00')
     cy.get('[data-cy="sprint-time"]').should('contain.text', 'Start Time: 14:00')
     cy.get('[data-cy="race-time"]').should('contain.text', 'Start Time: 15:00')
+  })
+
+  it('should not highlight race in red if it not the next race', () => {
+    cy.get('.race-info-box').should('have.css', 'background-color', 'rgb(60, 59, 59)')
+    cy.get('.next-race-info-box').should('not.exist')
+  })
+
+  it('should highlight the next race in red', () => {
+    cy.mount(<RaceInfoBox raceInfo={raceInfo} nextRace={true}/>)
+    cy.get('.race-info-box').should('not.exist')
+    cy.get('.next-race-info-box').should('have.css', 'background-color', 'rgb(224, 5, 0)')
   })
 })
