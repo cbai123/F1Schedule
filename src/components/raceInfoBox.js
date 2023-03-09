@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function RaceInfoBox({raceInfo}) {
+function RaceInfoBox({raceInfo, nextRace}) {
 
   const [showInfo, setShowInfo] = useState(false)
 
@@ -25,8 +25,16 @@ function RaceInfoBox({raceInfo}) {
     setShowInfo(!showInfo)
   }
 
+  function nextRaceCheck() {
+    if (nextRace) {
+      return 'next-race-info-box'
+    } else {
+      return 'race-info-box'
+    }
+  }
+
   return(
-    <div className='race-info-box' onClick={handleClick}>
+    <div className={nextRaceCheck()} onClick={handleClick}>
       <h3 className="race-title">{dateFormat(raceInfo.date)}&emsp;{raceInfo.raceName}</h3>
       {showInfo && <div className='race-info'>
         <h4 className="info-box-quali">Qualifying</h4>

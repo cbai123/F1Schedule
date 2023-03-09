@@ -3,7 +3,7 @@ import RaceInfoBox from "../components/raceInfoBox"
 
 function Home() {
 	const [raceArr, setRaceArr] = useState([])
-
+	const dateArr = []
 	useEffect(() => {
 		const fetchRaceInfo = async () => {
 			const response = await fetch('http://ergast.com/api/f1/current.json')
@@ -16,10 +16,18 @@ function Home() {
 		fetchRaceInfo()
 	}, [])
 
+	raceArr.forEach(raceInfo => {
+		dateArr.push(new Date(raceInfo.date))
+	})
+
+	const nextRaceIndex = dateArr.findIndex(date => date > new Date())
+
+
 	return(
 		<div className="race-info-box-container">
 			{ raceArr.map((raceInfo, index) => {
-					return <RaceInfoBox key={index} raceInfo={raceInfo} />
+					const nextRace = index === nextRaceIndex
+					return <RaceInfoBox key={index} raceInfo={raceInfo} nextRace={nextRace}/>
 				})}
 		</div>
 	)

@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "./home";
+import '../App.css'
 
 describe('<Home />', () => {
   beforeEach(() => {
@@ -7,6 +8,7 @@ describe('<Home />', () => {
   })
 
   it('renders the correct number of raceInfo boxes', () => {
-    cy.get('.race-info-box').should('have.length', 23)
+    cy.get('.race-info-box').should('have.length', 22)
+    cy.get('.next-race-info-box').should('have.length', 1)
   })
 })
