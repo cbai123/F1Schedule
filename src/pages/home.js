@@ -6,7 +6,7 @@ function Home() {
 	const dateArr = []
 	useEffect(() => {
 		const fetchRaceInfo = async () => {
-			const response = await fetch('http://ergast.com/api/f1/current.json')
+			const response = await fetch('https://ergast.com/api/f1/current.json')
 
 			const result = await response.json()
 			const data = await result.MRData.RaceTable.Races
