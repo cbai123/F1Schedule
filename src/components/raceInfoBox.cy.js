@@ -35,6 +35,10 @@ describe('<RaceInfoBox />', () => {
     cy.get('.race-title').should('contain.text', 'Bahrain Grand Prix 2023')
   })
 
+  it('should render the date of the GP in the correct format', () => {
+    cy.get('.race-title').should('contain.text', '05/03/23')
+  })
+
   it('should not initially render the race info', () => {
     cy.get('[data-cy="quali-time"]').should('not.exist')
     cy.get('[data-cy="sprint-time"]').should('not.exist')
