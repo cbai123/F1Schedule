@@ -7,7 +7,10 @@ function Race() {
 			</header>
 
 			<body className='App'>
-        <h1>Hello World!</h1>
+        <div>
+          <h1 style={{margin: 0}}>In Progress :)</h1>
+        </div>
+        
       </body>
 		</>
   )
