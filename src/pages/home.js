@@ -20,7 +20,11 @@ function Home({navigate}) {
 		dateArr.push(new Date(raceInfo.date))
 	})
 
-	const nextRaceIndex = dateArr.findIndex(date => date > new Date())
+	const nextRaceIndex = dateArr.findIndex(date => {
+		const today = new Date()
+		const isToday = date.getDate() === today.getDate() && date.getMonth() === today.getMonth() && date.getFullYear() === today.getFullYear()
+		return (date > today || isToday)
+	})
 
 
 	return(
